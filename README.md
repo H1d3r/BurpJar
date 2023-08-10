@@ -67,25 +67,35 @@
 &ensp;&ensp;3. 使用编译好的启动器
 
 ### macOS
+
+<br><p align="center">！全新安装后启动一次，防止出现 "安装包损坏" 问题 ！</p>
+
 1. 下载macOS (Intel/M1)
 2. 放置Loader至如下路径
-> /Applications/Burp Suite Professional.app/Contents/java/app
+> /Applications/Burp Suite Professional.app/Contents/Resources/app
+<p align="center"><img src="https://github.com/x-Ai/BurpSuite/assets/5061489/aabbd918-e8d9-4b72-a572-54a61e560584" alt="macOSLoader路径"></p>
 
-<p align="center"><img src="/static/macOSLoader路径.png" alt="macOSLoader路径"></p>
+
 
 &ensp;&ensp;3. 修改如下路径文件内容
 
 > /Applications/Burp Suite Professional.app/Contents/Info.plist
-<p align="center"><img src="/static/InfoPlist路径.png" alt="Info.plist路径"></p>
+<p align="center"><img src="https://github.com/x-Ai/BurpSuite/assets/5061489/f6558e04-6667-453b-bebe-9e660dc29b42" alt="Info.plist路径"></p>
+
 
 &ensp;&ensp;4. 修改Info.plist文件，`<string>-Dexe4j.moduleName=$APP_PACKAGE</string>` 后插入如下语句
 
 ```
 ......
-<string>-Dexe4j.moduleName=$APP_PACKAGE</string>
 <string>-noverify</string>
+<string>--add-opens</string>
+<string>java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED</string>
+<string>--add-opens</string>
+<string>java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED</string>
 <string>-javaagent:$APP_PACKAGE/Contents/Resources/app/BurpSuiteLoader.jar</string>
 ```
+<p align="center"><img src="https://github.com/x-Ai/BurpSuite/assets/5061489/29dc2e12-f815-4d18-8128-e37674d0c393" alt="Info.plist内容"></p>
+
 &ensp;&ensp;5. 使用启动台中的BurpSuite快捷方式
 ## 💻展示
 
