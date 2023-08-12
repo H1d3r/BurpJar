@@ -68,7 +68,7 @@
 
 ### macOS
 
-<br><p align="center">！全新安装后启动一次，防止出现 "安装包损坏" 问题 ！</p>
+<br><p align="center">！全新安装后启动一次，防止出现 "程序损坏" 问题 ！</p>
 
 1. 下载macOS (Intel/M1)
 2. 放置Loader至如下路径
